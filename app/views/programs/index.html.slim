@@ -1,1 +1,24 @@
 h1.text-lg.font-bold Program
+
+- if @meetings.any?
+  div = link_to 'Clear this program', program_path(:all), data: { "turbo-method": :delete }
+
+  - @days.each do |day|
+    - @periods.each do |period|
+      - if @meetings.by_period(day, period).any?
+        h2 #{day} #{period}
+        table
+          thead 
+            th 
+            - (1..8).each do |slot|
+              th = slot
+          tbody
+            - Mentor.where(available_day: day, available_period: period).order(name: :asc).each do |mentor| 
+              tr
+                td = mentor.name
+                - (1..8).each do |slot|
+                  td = Meeting.where(mentor: mentor, slot: slot).first&.fellow&.name
+
+- else
+  = render 'programs/form'
+  p Please upload a CSV to schedule a program

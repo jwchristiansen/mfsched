@@ -1,0 +1,4 @@
+div
+  = form_with url: programs_path, multipart: true do |form|
+    div = form.file_field :csv
+    div = form.submit
