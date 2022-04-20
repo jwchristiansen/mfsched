@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # programs
+  resources :programs, only: [:create, :destroy]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # root
+  root "programs#index"
 end
