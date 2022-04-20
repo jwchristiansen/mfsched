@@ -1,24 +1,28 @@
-h1.text-lg.font-bold Program
+h1.text-lg.font-bold Mentor <> Fellow Program Scheduler
 
 - if @meetings.any?
-  div = link_to 'Clear this program', program_path(:all), data: { "turbo-method": :delete }
+  div.mb-5
+    = link_to 'Clear this program', program_path(:all), class: "text-red-600 cursor-pointer hover:underline", data: { "turbo-method": :delete }
 
   - @days.each do |day|
     - @periods.each do |period|
       - if @meetings.by_period(day, period).any?
-        h2 #{day} #{period}
-        table
-          thead 
-            th 
+        h2.text-lg.font-bold #{day} #{period}
+        table.table-fixed.text-sm
+          thead.bg-slate-200
+            th
             - (1..8).each do |slot|
-              th = slot
+              th.text-left = slot_time_display(slot, period)
           tbody
             - Mentor.where(available_day: day, available_period: period).order(name: :asc).each do |mentor| 
-              tr
-                td = mentor.name
+              tr.h-10
+                td 
+                  b = mentor.name
                 - (1..8).each do |slot|
                   td = Meeting.where(mentor: mentor, slot: slot).first&.fellow&.name
 
 - else
-  = render 'programs/form'
-  p Please upload a CSV to schedule a program
+  div
+      p.mb-5.text-slate-500 Please upload a CSV to schedule a program
+      = render 'programs/form'
+  
