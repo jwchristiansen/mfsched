@@ -1,24 +1,28 @@
-# README
+# mfsched
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This simple app automates meeting schedules between mentors and fellows.
 
-Things you may want to cover:
+- [Live Demo](#)
+- [Source Data](https://drive.google.com/file/d/1YcA1rmWdeyRTfX5yyQDc6EPzmOo8NPNe/view?usp=sharing)
+- [Project Requirements](https://drive.google.com/file/d/1HKPelu_trblEUKA0_eh1lTRxc6ZYjvAF/view?usp=sharing)
 
-* Ruby version
+## Stack
+- Rails 7 (importmaps)
+- Postgresql
+- Tailwind
+- Rspec
 
-* System dependencies
+## Installation
+- Clone repo
+- bundle install
+- rails db:create db:migrate
 
-* Configuration
+## Development Environment
+- Foreman
+- Standardrb
 
-* Database creation
+## How it Works
 
-* Database initialization
+This app generates and displays non-conflicting program schedules that match mentors and fellows for 20-minute meetings held during AM/PM blocks during the program days.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To use the app, visit the app's main URL and upload the provided [csv file](https://drive.google.com/file/d/1YcA1rmWdeyRTfX5yyQDc6EPzmOo8NPNe/view?usp=sharing). The app will parse the file and schedule meeting slots between mentors and fellows.
