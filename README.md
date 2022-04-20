@@ -2,7 +2,7 @@
 
 Automated scheduling for mentor<>fellow 1:1s from CSV file.
 
-[Live Demo](#)
+[Live Demo](https://mfsched.herokuapp.com/)
 
 ## Use
 (1) Upload CSV file:
