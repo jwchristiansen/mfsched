@@ -1,15 +1,16 @@
 class Program
-  require 'csv'
+  require "csv"
 
+  # this method imports the CSV into the db
   def import_csv(file)
     data = File.open(file)
     csv = CSV.parse(data, headers: true)
 
     csv.each do |row|
-      @mentor = Mentor.create(  # insert mentors into db
-        name: row['Name'],
-        available_day: row['Day'],
-        available_period: row['AM/PM']
+      @mentor = Mentor.create( # insert mentors into db
+        name: row["Name"],
+        available_day: row["Day"],
+        available_period: row["AM/PM"]
       )
 
       (1..10).each do |n| # iterate through up to 10 fellows per mentor

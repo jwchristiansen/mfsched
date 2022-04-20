@@ -18,16 +18,17 @@ gem "sassc-rails"
 gem "slim-rails"
 
 group :development, :test do
-  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "standard"
   gem "rspec-rails"
   gem "capybara"
 end
 
 group :test do
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
 end
 
 group :development do
   gem "web-console"
 end
+
