@@ -8,27 +8,28 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "importmap-rails"
-gem "turbo-rails", '~> 0.8'
+gem "turbo-rails", "~> 0.8"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "redis", "~> 4.0"
 gem "bootsnap", require: false
 
+gem "httparty"
 gem "sassc-rails"
 gem "slim-rails"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "standard"
   gem "rspec-rails"
   gem "capybara"
+  gem "dotenv-rails"
 end
 
 group :test do
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails"
 end
 
 group :development do
   gem "web-console"
 end
-

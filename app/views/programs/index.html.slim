@@ -3,6 +3,7 @@ h1.text-lg.font-bold Mentor <> Fellow Program Scheduler
 - if @meetings.any?
   div.mb-5
     = link_to 'Clear this program', program_path(:all), class: "text-red-600 cursor-pointer hover:underline", data: { "turbo-method": :delete }
+    = link_to 'Spreadsheet <i class="fas fa-external-link-alt"></i>'.html_safe, 'https://docs.google.com/spreadsheets/d/1noQB3eShTsB-g-K_v3YYRHSvPNPol4ZTvuU1mMTJH70/edit#gid=0', target: '_blank', class: 'text-green-600 ml-5'
 
   - @days.each do |day|
     - @periods.each do |period|
